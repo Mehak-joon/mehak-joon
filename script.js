@@ -14,16 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
   const htmlRoot = document.documentElement;
 
-  // Check saved preference or system preference
+  // Check saved preference or default to light
   const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   if (savedTheme) {
     htmlRoot.setAttribute('data-theme', savedTheme);
-  } else if (!prefersDark) {
-    htmlRoot.setAttribute('data-theme', 'light');
   } else {
-    htmlRoot.setAttribute('data-theme', 'dark');
+    htmlRoot.setAttribute('data-theme', 'light');
   }
 
   if (themeToggleBtn) {
